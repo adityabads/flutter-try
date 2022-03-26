@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+exec /home/gitpod/.local/share/vivaldi-snapshot/vivaldi-snapshot "$@"
