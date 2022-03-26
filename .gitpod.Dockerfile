@@ -1,6 +1,8 @@
-FROM quay.io/gitpodified-workspace-images/vnc
+FROM gitpod/workspace-full:latest
 
-RUN curl -fsSL https://downloads.vivaldi.com/snapshot/install-vivaldi.sh | sh \
-    && ca-certificates fonts-liberation libappindicator3-1 libasound2 libatk-bridge2.0-0 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgbm1 libgcc1 libglib2.0-0 libgtk-3-0 libnspr4 libnss3 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 lsb-release wget xdg-utils
+ENV ANDROID_HOME=/workspace/android-sdk \
+    FLUTTER_ROOT=/workspace/flutter \
+    FLUTTER_HOME=/workspace/flutter
 
-COPY scripts/launch-vivaldi /usr/local/bin
+RUN bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh \
+             && sdk install java 8.0.242.j9-adpt"
